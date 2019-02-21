@@ -10,13 +10,20 @@ from .serializers import (
     RestaurantListSerializer,
     RestaurantDetailSerializer,
     RestaurantCreateUpdateSerializer,
+    UserCreateSerializer,
+    
 )
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 from .permissions import IsOwner
 from rest_framework.filters import OrderingFilter, SearchFilter
+from rest_framework.views import APIView
+from rest_framework_jwt.settings import api_settings
+
 
 #Complete ME!
-class RegisterView():
+class RegisterView(CreateAPIView):
+    serializer_class = UserCreateSerializer
+    permission_classes = [AllowAny]
 
 class RestaurantListView(ListAPIView):
     queryset = Restaurant.objects.all()
@@ -55,3 +62,4 @@ class RestaurantDeleteView(DestroyAPIView):
     lookup_field = 'id'
     lookup_url_kwarg = 'restaurant_id'
     permission_classes = [IsAuthenticated,IsAdminUser]
+
