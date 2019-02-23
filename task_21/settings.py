@@ -82,12 +82,12 @@ WSGI_APPLICATION = 'task_21.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 if DEBUG:
-DATABASES = {
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+         }
     }
-}
 else:
     DATABASES = {
     'default': {
@@ -97,8 +97,8 @@ else:
         'PASSWORD': '9dfd0f024cc3dd1146d33fbc1ddffcbf',
         'HOST': 'localhost',
         'PORT': '',
+        }
     }
-}
 
 
 # Password validation
